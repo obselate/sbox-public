@@ -11,8 +11,10 @@ internal static partial class StyleParser
 	{
 		IncludeLoops = 0;
 
-		StyleSheet sheet = new();
-		sheet.FileName = filename;
+		StyleSheet sheet = new()
+		{
+			FileName = filename
+		};
 		sheet.AddVariables( variables );
 
 		ParseToSheet( content, filename, sheet, recover );

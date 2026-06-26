@@ -41,10 +41,12 @@ public struct StyleSheetCollection
 	/// <summary>
 	/// Load the stylesheet from a string.
 	/// </summary>
-	public void Parse( string stylesheet, bool inheritVariables = true )
+	public StyleSheet Parse( string stylesheet, bool inheritVariables = true )
 	{
-		Remove( "string" );
-		Add( StyleSheet.FromString( stylesheet, "string", inheritVariables ? CollectVariables() : null ) );
+		var sheet = StyleSheet.FromString( stylesheet, ":string", inheritVariables ? CollectVariables() : null );
+		Remove(":string");
+		Add( sheet );
+		return sheet;
 	}
 
 	/// <summary>
